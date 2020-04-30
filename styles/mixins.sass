@@ -1,0 +1,14 @@
+/* Utilities */
+@use 'colours'
+
+/* Makes a visually distinct 'box' element */
+=boxify()
+    border: 1pt solid colours.$fg
+    border-bottom: 2pt solid colours.$fg
+
+    border-radius: 5pt
+    padding: 5pt
+
+/* A class version of the boxify mixin */
+.box
+    +boxify()

@@ -1,0 +1,127 @@
+/* Utilities */
+@use 'colours'
+@use 'fonts'
+@use 'mixins'
+
+/* Styling for headings */
+h1, h2, h3, h4, h5, h6
+    font-family: fonts.$display
+    font-weight: normal
+
+    margin-top: 5pt
+    margin-bottom: 5pt
+
+h1
+    font-size: 30pt
+
+    margin-top: 10pt
+    margin-bottom: 15pt
+
+h2
+    font-size: 24pt
+
+h3
+    font-size: 20pt
+
+h4
+    font-size: 18pt
+
+h5
+    font-size: 16pt
+
+h6
+    font-size: 14pt
+
+/* Styling for text */
+p
+    text-align: justify
+
+/* Styling for links */
+a:link
+    border-radius: 2pt
+    padding-left: 2pt
+    padding-right: 2pt
+
+a:link, a:visited
+    color: colours.$primary
+
+    transition: background 0.1s, color 0.1s
+
+a:hover, a:active
+    background: colours.$primary
+    color: colours.$bg
+
+    transition: background 0.1s, color 0.1s
+
+/* Styling for code */
+pre
+    +mixins.boxify()
+    overflow-x: auto
+
+code, pre
+    font-family: fonts.$code
+
+/* Styling for extra text */
+blockquote
+    +mixins.boxify()
+
+    margin-left: 0
+    margin-right: 0
+    padding-top: 0
+
+    footer
+        text-align: right
+
+blockquote.light
+    border-left: none
+    border-right: none
+    border-bottom: 1pt solid colours.$fg
+
+aside
+    border-left: 1pt solid colours.$fg
+    border-radius: 5pt
+
+    padding: 1pt
+    padding-left: 10pt
+
+abbr
+    color: colours.$primary
+    cursor: help
+
+mark
+    border-radius: 2pt
+    padding-left: 2pt
+    padding-right: 2pt
+
+    background: colours.$secondary
+    color: colours.$bg
+
+details
+    +mixins.boxify()
+    padding: 0
+
+    *
+        margin: 5pt
+
+    summary
+        font-weight: bold
+        cursor: pointer
+
+        border-radius: 5pt
+        padding: 5pt
+
+        margin: 0
+
+        color: colours.$primary
+
+        transition: background 0.1s, color 0.1s
+    
+    summary:hover
+        background: colours.$primary
+        color: colours.$bg
+
+details[open]
+    summary
+        background: colours.$primary
+        color: colours.$bg
+        

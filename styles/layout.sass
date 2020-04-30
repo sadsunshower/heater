@@ -1,0 +1,104 @@
+/* Utilities */
+@use 'colours'
+@use 'fonts'
+@use 'mixins'
+   
+/* Styling for document sections */
+header, footer, main
+    padding-left: 5pt
+    padding-right: 5pt
+
+    margin: 0
+
+/* Styling for the footer */
+body > footer
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+
+    background: colours.$fg
+    color: colours.$bg
+
+    font-size: 0.8em
+
+    p
+        margin-top: 5pt
+        margin-bottom: 5pt
+    
+    a:link, a:visited
+        color: colours.$secondary
+
+        transition: background 0.1s, color 0.1s
+    
+    a:hover, a:active
+        background: colours.$secondary
+        color: colours.$fg
+
+        transition: background 0.1s, color 0.1s
+
+/* Styling for the header */
+header
+    max-width: 800pt
+    margin: auto
+
+    padding-left: 5pt
+    padding-right: 5pt
+
+/* Styling for the main section */
+main
+    max-width: 800pt
+    margin: auto
+
+    padding-left: 5pt
+    padding-right: 5pt
+    padding-bottom: 100pt
+
+/* Styling for the nav section */
+nav
+    +mixins.boxify()
+
+    ol
+        list-style-type: none
+        
+        padding: 0
+        margin: 0
+
+        display: inline-block
+
+        li
+            display: inline-block
+        
+        li::before
+            content: '\025B8'
+            margin-right: 5pt
+            margin-left: 5pt
+        
+        li:first-child:before
+            content: ''
+            margin-right: 0
+
+/* Styling for images */
+img
+    width: 100%
+    height: auto
+
+    object-fit: cover
+    object-position: 50% 50%
+
+picture.alongside
+    img
+        @media (min-width: 600pt)
+            width: 300pt
+            height: auto
+
+            float: right
+            margin: 10pt
+            margin-left: 15pt
+
+picture.left
+    img
+        @media (min-width: 600pt)
+            float: left !important
+            margin-left: 10pt !important
+            margin-right: 15pt !important

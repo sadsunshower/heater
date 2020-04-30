@@ -1,0 +1,188 @@
+/* Utilities */
+@use 'colours'
+@use 'fonts'
+@use 'mixins'
+
+/* Text areas */
+textarea
+    +mixins.boxify()
+
+    background: none
+
+    font-family: fonts.$code
+    font-size: 1em
+
+    box-sizing: border-box
+
+    width: 100%
+    resize: vertical
+
+    transition: background 0.1s
+
+textarea:focus, textarea:hover
+    background: rgba(colours.$primary, 0.15)
+
+textarea:disabled
+    background: none
+    cursor: not-allowed
+
+/* Buttons */
+button
+    +mixins.boxify()
+
+    background: none
+
+    font-family: fonts.$normal
+
+    margin-bottom: 5pt
+
+    transition: background 0.1s, color 0.1s
+
+button:hover, button:focus
+    background: colours.$primary
+    color: colours.$bg
+
+    cursor: pointer
+
+button.green:hover, button.red:focus
+    background: colours.$green
+
+button.red:hover, button.red:focus
+    background: colours.$red
+
+button.blue:hover, button.blue:focus
+    background: colours.$blue
+
+button:disabled
+    background: colours.$fg
+    color: colours.$bg
+
+    cursor: not-allowed
+
+/* Text fields */
+@mixin input-text-base
+    +mixins.boxify()
+
+    background: none
+    color: colours.$fg
+
+    font-family: fonts.$normal
+
+    margin-bottom: 5pt
+
+    transition: background 0.1s
+
+@mixin input-text-selected
+    background: rgba(colours.$primary, 0.15)
+
+@mixin input-text-disabled
+    background: none
+    cursor: not-allowed
+
+@mixin input-text-invalid
+    background: rgba(colours.$secondary, 0.15)
+
+input[type='text'], input[type='search'], input[type='password'], input[type='email'], input[type='number'], input[type='date'], input[type='tel'], input[type='time']
+    +input-text-base()
+
+input[type='text']:focus, input[type='search']:focus, input[type='password']:focus, input[type='email']:focus, input[type='number']:focus, input[type='date']:focus, input[type='tel']:focus, input[type='time']:focus
+    +input-text-selected()
+
+input[type='text']:hover, input[type='search']:hover, input[type='password']:hover, input[type='email']:hover, input[type='number']:hover, input[type='date']:hover, input[type='tel']:hover, input[type='time']:hover
+    +input-text-selected()
+
+input[type='text']:disabled, input[type='search']:disabled, input[type='password']:disabled, input[type='email']:disabled, input[type='number']:disabled, input[type='date']:disabled, input[type='tel']:disabled, input[type='time']:disabled
+    +input-text-disabled()
+
+input[type='text']:invalid, input[type='search']:invalid, input[type='password']:invalid, input[type='email']:invalid, input[type='number']:invalid, input[type='date']:invalid, input[type='tel']:invalid, input[type='time']:invalid
+    +input-text-invalid()
+
+/* Radio buttons */
+input[type='radio']
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+    margin-bottom: -0.5pt
+
+    border-radius: 50%
+    width: 12pt
+    height: 12pt
+    
+    border: 1pt solid colours.$fg
+    border-bottom: 2pt solid colours.$fg
+
+    cursor: pointer
+
+    transition: background 0.1s
+
+input[type='radio']:checked
+    background: colours.$primary !important
+
+input[type='radio']:focus, input[type='radio']:hover
+    background: rgba(colours.$primary, 0.15)
+
+input[type='radio']:disabled
+    background: colours.$fg
+
+    cursor: not-allowed
+
+/* Checkboxes */
+input[type='checkbox']
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+    margin-bottom: -1.5pt
+
+    border-radius: 3pt
+    width: 12pt
+    height: 12pt
+    
+    border: 1pt solid colours.$fg
+    border-bottom: 2pt solid colours.$fg
+
+    cursor: pointer
+
+    transition: background 0.1s
+
+input[type='checkbox']:checked
+    background: colours.$primary !important
+
+input[type='checkbox']:focus, input[type='checkbox']:hover
+    background: rgba(colours.$primary, 0.15)
+
+input[type='checkbox']:disabled
+    background: colours.$fg
+
+    cursor: not-allowed
+
+/* Field sets */
+fieldset
+    +mixins.boxify()
+
+    margin-top: 10pt
+    margin-bottom: 10pt
+
+    padding-left: 10pt
+    padding-right: 10pt
+
+/* Select element */
+select
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+    +mixins.boxify()
+
+    background: none
+
+    cursor: pointer
+
+    font-family: fonts.$normal
+
+    transition: background 0.1s, color 0.1s
+
+select:hover, select:focus
+    background: colours.$primary
+    color: colours.$bg
